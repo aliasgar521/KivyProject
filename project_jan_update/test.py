@@ -31,11 +31,11 @@ class testWidget(Widget):
 	def on_touch_down(self,touch):
 		if 'markerid' in touch.profile:
 			if touch.fid==2:
-				os.system("python paint.py")				
+				os.system("python paint/paint.py")				
 				#pong.PongApp().run()
 				return
-			if touch.fid%2==1:
-				os.system("python paint.py")
+			if touch.fid==5:
+				os.system("python pong.py")
 				#paint.MyPaintApp.run()
 				return
 if __name__ == '__main__':
