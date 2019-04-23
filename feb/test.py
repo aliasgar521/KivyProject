@@ -27,17 +27,23 @@ class testApp(App):
        	 	# ...
 		return testWidget()
 class testWidget(Widget):	
+	def __init__(self, **kwargs):
+		super(testWidget, self).__init__(**kwargs)
+		self.add_widget(Label(text="Hello "))
+        
 	def on_touch_down(self,touch):
 		if 'markerid' in touch.profile:
-			if touch.fid==2:
-				os.system("python image.py")
-				testApp()
+			
 			if touch.fid==4:
 				os.system("python pong.py")	
-			
+			if touch.fid==8:
+				os.system("python eg.py")
 			if touch.fid==1:
 				os.system("python paint.py")
-				#paint.MyPaintApp.run()
+			if touch.fid==2:
+				os.system("python eg.py")
+				testApp()
+					#paint.MyPaintApp.run()
 				
 if __name__ == '__main__':
 	testApp().run()
