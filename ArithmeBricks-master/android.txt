@@ -1,3 +1,0 @@
-title=ArithmeBricks
-author=Jan Kaliszewski
-orientation=landscape
