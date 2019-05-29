@@ -17,27 +17,31 @@ class testWidget(Widget):
 			#print(touch.x,touch.y)
 			#and touch.x < 200 and touch.y < 300
 			if touch.fid==3:
+				with self.canvas.before:
+						Rectangle(source="S1.jpg",pos=self.pos,size=self.size)
 				print(touch.x,touch.y)
 				f1=True
 				
 			elif f1:
-				if touch.fid==2:
+				if touch.fid==2 and touch.x > 450 and touch.y < 200:
 					with self.canvas.before:
-						Rectangle(source="2.jpg",pos=self.pos,size=self.size)
+						Rectangle(source="SV1.jpg",pos=self.pos,size=self.size)
 						#self.add_widget(Rectangle(source="download.jpeg"))
-			elif touch.fid==6:
-				with self.canvas.before:
-					Rectangle(source="3.jpg",pos=self.pos,size=self.size)
-					
+				if touch.fid==2 and touch.x < 450 and touch.y < 200:
+					with self.canvas.before:
+						Rectangle(source="FV1.jpg",pos=self.pos,size=self.size)
+				if touch.fid==2 and touch.x < 600 and touch.x > 300 and touch.y > 200:
+					with self.canvas.before:
+						Rectangle(source="TV1.jpg",pos=self.pos,size=self.size)
 			if touch.fid==9:
 				os.system("python ../project_jan_update/test.py")
 				quit()
 			
 	def on_touch_up(self,touch):
 		if 'markerid' in touch.profile:
-			if touch.fid==6:
+			if touch.fid==2:
 				with self.canvas.before:
-					Rectangle(source="1.jpg",pos=self.pos,size=self.size)
+					Rectangle(source="S1.jpg",pos=self.pos,size=self.size)
 
 class GraphicApp(App):
 	def build(self):

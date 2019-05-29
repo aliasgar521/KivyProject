@@ -37,11 +37,23 @@ class testWidget(Widget):
 		animation = Animation(pos=(900, 500)) + Animation(pos=(1050,500))
 		animation.repeat = True
 		animation.start(instance)
+	"""
 	def animate4(self, instance):
 		instance.opacity = 100
 		animation = Animation(pos=(535, 750)) + Animation(pos=(555,570))
 		animation.repeat = True
 		animation.start(instance)
+	def animate5(self, instance):
+		instance.opacity = 100
+		animation = Animation(pos=(690, 340)) + Animation(pos=(800,470))
+		animation.repeat = True
+		animation.start(instance)
+	def animate6(self, instance):
+		instance.opacity = 100
+		animation = Animation(pos=(900, 500)) + Animation(pos=(1050,500))
+		animation.repeat = True
+		animation.start(instance)
+		"""
 	def on_touch_down(self,touch):
 		global f1,f2,f3,f4
 		
@@ -57,15 +69,36 @@ class testWidget(Widget):
 				#self.ids.image2=self.animate2(self.ids.image2)
 				print("yes2")
 				
+			"""
+			if touch.fid==4:
+				f3=True
+				#self.ids.image1=self.animate(self.ids.image1)
+				print("yes1")
+				
+			if touch.fid==5:
+				f4=True
+				#self.ids.image2=self.animate2(self.ids.image2)
+				print("yes2")
+			"""	
 			
 			if f1 and f2:
 				self.ids.image1=self.animate(self.ids.image1)
 				self.ids.image2=self.animate2(self.ids.image2)
 				self.ids.image3=self.animate3(self.ids.image3)
 				#self.ids.image4=self.animate4(self.ids.image4)
-				#with self.canvas.before:
-					#Rectangle(source="Map2s.jpg",pos=self.pos,size=self.size)
-	
+				with self.canvas.before:
+					Rectangle(source="Map2s.jpg",pos=self.pos,size=self.size)
+					
+			"""
+			if f3 and f4:
+				self.ids.image1=self.animate(self.ids.image1)
+				self.ids.image2=self.animate2(self.ids.image2)
+				self.ids.image3=self.animate3(self.ids.image3)
+				#self.ids.image4=self.animate4(self.ids.image4)
+				with self.canvas.before:
+					Rectangle(source="Map2s.jpg",pos=self.pos,size=self.size)
+			"""
+			
 class Shortest_path_findApp(App):    
 	def build(self):
 		Config.set('input','fid1','tuio,0.0.0.0:3333')
