@@ -18,6 +18,9 @@ import pong
 #import MyPaintApp			
 #import green
 #import main
+import subprocess
+
+f1,f2,f3,f4 = False, False, False, False
 
 class testApp(App):
 	def build(self):
@@ -37,13 +40,24 @@ class testWidget(Widget):
 	
 	
 	def on_touch_down(self,touch):
+		global f1,f2,f3,f4
+
 		if 'markerid' in touch.profile:
-			if touch.fid==2:
-				os.system("python paint/paint.py")				
+			if touch.fid==116:
+				os.system("python ../Animation/shortest_path.py")				
 				#pong.PongApp().run()
 				return
-			if touch.fid==5:
-				os.system("python pong.py")
+			if touch.fid==9:
+				f1=True
+				p = subprocess.os.system("python ../EnggGraphics/graphic.py")
+				p.terminate()
+			#	os.system("python ../EnggGraphics/graphic.py")
+				#paint.MyPaintApp.run()
+			if f1:
+				sys.exit()
+				return
+			if touch.fid==114:
+				os.system("python ../feb/image.py")
 				#paint.MyPaintApp.run()
 				return
 if __name__ == '__main__':

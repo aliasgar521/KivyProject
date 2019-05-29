@@ -1,8 +1,8 @@
 #:kivy 1.1.0
 
 <testWidget>:
-	Label:
-		text:'aoasdsad' 
-<testApp>:
-	Label:
-		txt:'Hello World'
+	canvas.before:
+		Rectangle:
+			pos: self.pos
+			size: self.size
+			source: 'menu1.png'

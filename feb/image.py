@@ -5,6 +5,8 @@ from kivy.uix.image import Image
 from kivy.uix.widget import Widget
 from kivy.config import Config 
 from socket import *
+from kivy.core.window import Window
+
 from kivy.graphics import Rectangle
 class testWidget(Widget):
 	def on_touch_down(self,touch):
@@ -46,4 +48,6 @@ class ImageApp(App):
 
 	
 if __name__ == '__main__':
+	
+
 	ImageApp().run()

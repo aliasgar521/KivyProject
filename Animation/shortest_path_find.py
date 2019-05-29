@@ -17,7 +17,7 @@ class testWidget(Widget):
         # and reused each call or reused across different widgets.
         # += is a sequential step, while &= is in parallel
 		instance.opacity = 100
-		animation = Animation(pos=(640, 160)) + Animation(pos=(580,110))
+		animation = Animation(pos=(440, 400)) + Animation(pos=(650,320))
 		#animation += Animation(pos=(200, 100), t='out_back')
 		animation.repeat = True
         #animation &= Animation(size=(500, 500))
@@ -29,12 +29,12 @@ class testWidget(Widget):
 		animation.start(instance)
 	def animate2(self, instance):
 		instance.opacity = 100
-		animation = Animation(pos=(880, 370)) + Animation(pos=(690,220))
+		animation = Animation(pos=(690, 340)) + Animation(pos=(800,470))
 		animation.repeat = True
 		animation.start(instance)
 	def animate3(self, instance):
 		instance.opacity = 100
-		animation = Animation(pos=(580, 500)) + Animation(pos=(880,400))
+		animation = Animation(pos=(900, 500)) + Animation(pos=(1050,500))
 		animation.repeat = True
 		animation.start(instance)
 	def animate4(self, instance):
@@ -49,33 +49,29 @@ class testWidget(Widget):
 			
 			if touch.fid==2:
 				f1=True
-				self.ids.image1=self.animate(self.ids.image1)
+				#self.ids.image1=self.animate(self.ids.image1)
 				print("yes1")
 				
 			if touch.fid==3:
 				f2=True
-				self.ids.image2=self.animate2(self.ids.image2)
+				#self.ids.image2=self.animate2(self.ids.image2)
 				print("yes2")
 				
-			if touch.fid==4:
-				f3=True
+			
+			if f1 and f2:
+				self.ids.image1=self.animate(self.ids.image1)
+				self.ids.image2=self.animate2(self.ids.image2)
 				self.ids.image3=self.animate3(self.ids.image3)
-				print("yes3")
-			if touch.fid==11:
-				f4=True
-				self.ids.image4=self.animate4(self.ids.image4)
-				print("yes4")
-				
-			if f1 and f2 and f3 and f4:
-				with self.canvas.before:
-					Rectangle(source="Map2.jpg",pos=self.pos,size=self.size)
+				#self.ids.image4=self.animate4(self.ids.image4)
+				#with self.canvas.before:
+					#Rectangle(source="Map2s.jpg",pos=self.pos,size=self.size)
 	
-class Shortest_pathApp(App):    
+class Shortest_path_findApp(App):    
 	def build(self):
 		Config.set('input','fid1','tuio,0.0.0.0:3333')
 		return testWidget()
 
 	
 if __name__ == '__main__':
-	#Window.fullscreen = True
-	Shortest_pathApp().run()
+	Window.fullscreen = True
+	Shortest_path_findApp().run()
